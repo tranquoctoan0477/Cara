@@ -1,0 +1,76 @@
+.status {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.order-tracking {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.step {
+    max-width: 100px;
+    max-height: 100px;
+    text-align: center;
+    flex-grow: 1;
+    position: relative;
+}
+#step3{
+    top: -10px;
+}
+.step .circle {
+    width: 40px;
+    /* Kích thước vòng tròn */
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: bold;
+    margin: 0 auto 10px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.step .circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    /* Vị trí bắt đầu từ viền bên phải của vòng tròn */
+    transform: translateY(-50%);
+    width: 120px;
+    /* Tăng chiều dài để đường nối chạm vào vòng tròn tiếp theo */
+    height: 20px;
+    border-radius: 10%;
+    /* Tăng độ dày của đường thẳng */
+    background-color: #000;
+    z-index: -1;
+}
+
+.step:last-child .circle::after {
+    display: none;
+    /* Ẩn đường thẳng ở bước cuối cùng */
+}
+
+.step.active .circle {
+    background-color: #fff;
+    border: 2px solid #28a745;
+}
+
+.step.active .circle::after {
+    background-color: #28a745;
+    /* Đổi màu đường nối khi hoàn thành */
+}
+
+p {
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5;
+}
